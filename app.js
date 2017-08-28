@@ -1,6 +1,8 @@
 const STORE =
-  { 
-    page: ['.js-quiz-intro', '.js-quiz-selection', '.js-feedback-page', '.js-score-result'],
+  {
+    pageState: ['.js-quiz-intro', '.js-quiz-selection', '.js-feedback-page', '.js-score-result'],
+    totalQuestions: 0,
+    correctQuestions: 0,
     questions:
     [
       {
@@ -43,80 +45,87 @@ const STORE =
   }
 
 
-// a function to render/handle and display each page separately page.[1], page.2[], ...etc
-function handleIntroPage() {
-  $('.js-quiz-intro').removeClass("hidden");
-  submitIntroPage();
-  console.log('handleDisplayPage ran');
+function renderQuizApp() {
+  $(".container").html();
 }
 
-function submitIntroPage() {
-  $('.js-quiz-intro').on("click", ".js-start-game", function (event) {
-    event.preventDefault();
-    $('.js-quiz-intro').addClass("hidden");
-    $('.js-quiz-selection').removeClass("hidden");
-    console.log('submit works')
-  }
-    //
-  )
-}
-
-function handleQuestionsPage() {
-  //insert question & answers
+function generateStrings() {
   
-  $('.js-quiz-selection').on("click", ".js-final-answer", function (event) {
-    event.preventDefault();
-    $('.js-quiz-selection').addClass("hidden");
-    $('.js-quiz-feedback').removeClass("hidden");
-    console.log('handleQuestionsPage ran');
-   finalAnswerSubmit();
-  })
-  //STORE.questions.questionText/answers
 }
 
-function finalAnswerSubmit() {
-  console.log('handleRadioSubmit ran');
-
+function generateIntroPage() {
+  console.log('handleDisplayPage ran');
+  return `
+  <section class="js-quiz-intro quiz-intro hidden">
+    <h1>Who Wants to Be a Millionaire?</h1>
+    <div>
+      <img src="" alt="">
+          </div>
+      <button type="submit" class="js-start-game">Start Game</button>
+  </section>`
+    // submitIntroPage();
+  
+  renderQuizApp();
 }
 
-function handleResultsPage() {
-  $('.js-quiz-feedback').on("click", ".js-next-question", function (event) {
-    event.preventDefault();
-  console.log('handleResultsPage ran');
-  //update X/Y correct answers
-  //see if there's another question or end of questions
-  //if () go to next question
-  // $('.js-quiz-selection').removeClass("hidden");
-  //else go to final page
-  $('.js-quiz-feedback').addClass("hidden");
-  $('.js-quiz-result').removeClass("hidden");
-  })
-}
+// function submitIntroPage() {
+//       $('.js-quiz-intro').on("click", ".js-start-game", function (event) {
+//         event.preventDefault();
+//         console.log('submit works')
+//       }
+//         //
+//       )
+//     }
 
-function handleFinalPage() {
+//     function handleQuestionsPage() {
+//       //insert question & answers
+//       $('.js-quiz-selection').on("click", ".js-final-answer", function (event) {
+//         event.preventDefault();
+//         console.log('handleQuestionsPage ran');
+//         finalAnswerSubmit();
+//       })
+//       //STORE.questions.questionText/answers
+//     }
 
-  console.log('handleFinalPage ran');
-  //update X/Y correct answers
-  //reset button
-}
+//     function finalAnswerSubmit() {
+//       console.log('handleRadioSubmit ran');
 
-function handleResetButton() {
-  //goes back to start page
-  console.log('handleResetButton ran');
-}
+//     }
 
-// Master function to handle all our other functions. Runs everything. 
+// function handleResultsPage() {
+//       $('.js-quiz-feedback').on("click", ".js-next-question", function (event) {
+//         event.preventDefault();
+//         console.log('handleResultsPage ran');
+//         //update X/Y correct answers
+//         //see if there's another question or end of questions
+//         //if () go to next question
+//         // $('.js-quiz-selection').removeClass("hidden");
+//         //else go to final page
+//       })
+//     }
+
+//     function handleFinalPage() {
+
+//       console.log('handleFinalPage ran');
+//     //update X/Y correct answers
+//     //reset button
+//     }
+
+// function handleResetButton() {
+//       //goes back to start page
+//       console.log('handleResetButton ran');
+//     }
+
+// Master function to handle all our other functions. Runs everything.
 function handleQuizApp() {
-  handleIntroPage();
-  handleQuestionsPage();
-  handleResultsPage();
-  handleFinalPage();
-  handleResetButton();
+      renderQuizApp();
+      generateIntroPage();
+  // handleIntroPage();
+  // handleQuestionsPage();
+  // handleResultsPage();
+  // handleFinalPage();
+  // handleResetButton();
 }
 
 $(handleQuizApp);
 
-
-// const q = questions[0];
-// q.answers
-// q.answer[q.correctAnswer]
