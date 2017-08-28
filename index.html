@@ -10,7 +10,7 @@
 </head>
 
 <body>
-  <section class="js-quiz-intro">
+  <section class="js-quiz-intro quiz-intro">
     <h1>Who Wants to Be a Millionaire?</h1>
     <div>
       <img src="" alt="">
@@ -18,9 +18,10 @@
     <button type="submit" class="js-start-game">Start Game</button>
   </section>
 
-  <h2>Question #</h2>
-  <p>Question...</p>
-  <section class="js-quiz-selection">
+
+  <section class="js-quiz-selection quiz-selection hidden">
+    <h2>Question #</h2>
+    <p>Question...</p>
     <form name="current-question" id="question">
       <div class="question-container">
         <label class="js-answers">A</label>
@@ -36,7 +37,7 @@
     </form>
   </section>
 
-  <section class="js-feedback-page">
+  <section class="js-feedback-page feedback-page hidden">
     <div class="js-feedback-container">
       <h3 class="js-feedback-header">Right or Wrong</h3>
       <p class="js-feedback-text">Correct Answer</p>
@@ -45,7 +46,7 @@
     </div>
   </section>
 
-  <section class="js-score-result">
+  <section class="js-score-result score-result hidden">
     <div class="js-score-container">
       <p class="js-score-text">You got X of Y questions and won Z money</p>
       <button type="submit">Play Again</button>
