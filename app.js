@@ -8,44 +8,55 @@ const STORE =
     [
       {
         id: 1,
-        questionText: 'This is Question 1 for our Quiz app',
-        answers: ['This is Answer 1', 'This is Answer 2', 'This is Answer 3', "This is Answer 4"],
-        correctAnswer: 0
-      },
-      {
-        id: 2,
-        questionText: 'This is Question 2 for our Quiz app',
-        answers: ['This is Answer 1', 'This is Answer 2', 'This is Answer 3', "This is Answer 4"],
+        questionText: 'What is the air-speed volectity of an unladen swallow?',
+        answers: ['40-56 miles per hour', '41-51 kilometers per hour', '.00000456481 light years', 'Monty Python and the Holy Grail'],
         correctAnswer: 3
       },
       {
-        id: 3,
-        questionText: 'This is Question 3 for our Quiz app',
-        answers: ['This is Answer 1', 'This is Answer 2', 'This is Answer 3', "This is Answer 4"],
-        correctAnswer: 2
-      },
-      {
-        id: 4,
-        questionText: 'This is Question 4 for our Quiz app',
-        answers: ['This is Answer 1', 'This is Answer 2', 'This is Answer 3', "This is Answer 4"],
+        id: 2,
+        questionText: `How many doughnuts in a baker's dozen?`,
+        answers: ['12', '13', '24', "60"],
         correctAnswer: 1
       },
       {
+        id: 3,
+        questionText: 'Which fruit is consumed the most annually in the United States?',
+        answers: ['Banana', 'Apple', 'Orange', 'Strawberry'],
+        correctAnswer: 0
+      },
+      {
+        id: 4,
+        questionText: 'Who is the top nationally ranked rugby team?',
+        answers: ['England', 'Australia', 'South Africa', 'New Zealand'],
+        correctAnswer: 3
+      },
+      {
         id: 5,
-        questionText: 'This is Question 5 for our Quiz app',
-        answers: ['This is Answer 1', 'This is Answer 2', 'This is Answer 3', "This is Answer 4"],
+        questionText: 'Which logo is the most recognizable logo in the world? ',
+        answers: ['Ford', 'Coca-Cola', "McDonald's", "Nike"],
         correctAnswer: 3
       },
       {
         id: 6,
-        questionText: 'This is Question 5 for our Quiz app',
-        answers: ['This is Answer 1', 'This is Answer 2', 'This is Answer 3', "This is Answer 4"],
+        questionText: 'Which fruit is consumed the most annually in the United States?',
+        answers: ['Banana', 'Apple', 'Orange', 'Strawberry'],
         correctAnswer: 0
       },
     ]
   }
 
+function randomQuestion(){
+  const questionOptions = [];
+  while(questionOptions.length<=5){
+    let question = STORE.questions[(Math.floor(Math.random() * STORE.questions.length))];
+    
+    for(let i=0;i<STORE.questions.length;i++) if(questionOptions.includes(question)) return;
+    questionOptions.push(question);
+  }
+}
+
 function renderQuizApp() {
+
   $('section').addClass("hidden");
 
   if (STORE.pageState === "page1") {
@@ -56,7 +67,7 @@ function renderQuizApp() {
     $('.js-quiz-selection').removeClass("hidden");
   }
 
-  i = STORE.totalQuestions
+  i = randomQuestion();
   $(".js-questionNumber-question").html(`<h2>Question ${STORE.questions[i].id}</h2>
     <p>${STORE.questions[i].questionText}</p>`)
 
@@ -97,6 +108,7 @@ function startQuiz() {
 }
 
 function handleIntroPage() {
+
   $('.js-quiz-intro').on("click", ".js-start-game", function (event) {
     event.preventDefault();
     startQuiz();

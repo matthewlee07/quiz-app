@@ -1,7 +1,15 @@
 .quiz-intro {
+  margin: 0 auto;
+  width: 100%;
 }
 
 .hidden{
   display: none;
   border: 1px solid black;
+}
+
+.container{
+  border: 1px solid black;
+  margin: 0 auto;
+  width:100%;
 }
