@@ -13,19 +13,31 @@
 
   <div class= "container"> 
       
-        <!-- <section class="js-quiz-selection quiz-selection hidden">
+    <section class="js-quiz-intro quiz-intro hidden">
+      <h1>Who Wants to Be a Millionaire?</h1>
+      <div>
+        <img src="" alt="">
+            </div>
+        <button type="submit" class="js-start-game">Start Game</button>
+    </section>
+
+        <section class="js-quiz-selection quiz-selection hidden">
+          <div class = "js-questionNumber-question"> 
           <h2>Question #</h2>
           <p>Question...</p>
+          </div>
           <form name="current-question" id="question">
-            <div class="question-container">
-              <label class="js-answers">A</label>
-              <input type="radio" checked="checked" class="js-option" name="option"></input>
-              <label class="js-answers">A</label>
-              <input type="radio" class="js-option" name="option"></input>
-              <label class="js-answers">A</label>
-              <input type="radio" class="js-option" name="option"></input>
-              <label class="js-answers">A</label>
-              <input type="radio" class="js-option" name="option"></input>
+            <div class="question-container">         
+               
+              <input type="radio" checked="checked" class="js-optionA" name="option"></input>
+              <label class="js-answersA">A</label>
+              <input type="radio" class="js-optionB" name="option"></input>
+              <label class="js-answersB">B</label>
+              <input type="radio" class="js-optionC" name="option"></input>
+              <label class="js-answersC">C</label>
+              <input type="radio" class="js-optionD" name="option"></input>
+              <label class="js-answersD">D</label>
+              
             </div>
             <button class="js-final-answer" type="submit">Final Answer</button>
           </form>
@@ -49,7 +61,8 @@
               <button type="submit">Play Again</button>
             </div>
           </form>
-        </section> -->
+        </section>
+
   </div>
 
   <script src="//code.jquery.com/jquery.min.js"></script>
